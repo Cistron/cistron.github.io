@@ -1,17 +1,12 @@
 # Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-#relative_permalinks: true
-gems: [jekyll-paginate]
 
 # Setup
-title:               Disgruntled Biochemist
-tagline:             'Teaching fellow-ing along'
-description:         ''
+title:               'The roots of the tree of knowledge are bitter'
+tagline:             'but the fruits are sweet'
+description:         'Teaching materials and ruminations by Dr. Michael Baron.'
 url:                 http://cistron.github.io
 baseurl:             ''
-paginate:            5
 
 # About/contact
 author:
@@ -19,5 +14,4 @@ author:
   url:               https://twitter.com/photo_receptor
   email:             michael.baron@ucl.ac.uk
 
-# Custom vars
-version:             1.0.0
+include: ["_splats"]
