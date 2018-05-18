@@ -19,11 +19,11 @@ We will be writing code in a [Jupyter Notebook](http://jupyter.org/), quasi a co
 
 The following video on Youtube provides a [quick introduction to Juypter Notebooks](https://www.youtube.com/watch?v=jZ952vChhuI) and introduces the majority of the core features you need for this workshop. For deeper inmersion, have a look at a longer, more [in-depth introduction](https://www.youtube.com/watch?v=UyxuLHLzDLA) on all the extra bits and bobs ('magics') of Jupyter, which makes it special.
 
-![Launching Jupyter on UCL cluster PC]({{ "/splats/images/jupyter_notebook.png" | absolute_url }})
+![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_notebook.png" | absolute_url }})
 
 In UCL cluster rooms, Jupyter comes preinstalled as part of the Anaconda Python distribution. You should be able to find and launch it by typing 'jupyter' into the start menu.
 
-![Launching Jupyter on UCL cluster PC]({{ "/splats/images/jupyter_ucl_cluster.png" | absolute_url }})
+![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_ucl_cluster.png" | absolute_url }})
 
 If you like to use your personal computer, you can download the same distribution from the [Anaconda website](https://www.anaconda.com/download/); make sure to download **version 3.6** (or higher) of Python.
 
@@ -215,7 +215,7 @@ Now that you know how to count up with a `for` loop, combine this with your eval
 
 Whenever you are working on more complicated programmes, it greatly helps to conceptualise and visualise what you are trying to achieve. Below is a flowchart of a relatively simple *Fizz Buzz* algorithm.
 
-![FizzBuzz algorithm]({{ "/splats/images/fizzbuzz_algorithm.png" | absolute_url }})
+![FizzBuzz algorithm]({{ "/splats/images/python1/fizzbuzz_algorithm.png" | absolute_url }})
 
 This can be done on the back of a napkin, or in this case with a drawing software (draw.io). Feel free to clone [this *Fizz Buzz* flow chart](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=fizzbuzz_algorithm.html#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12Zj8lTX_aF-iXCBaeiRmu_NJjOiUckr9%26export%3Ddownload) and expand and adopt it for a more versatile algorithm later.
 

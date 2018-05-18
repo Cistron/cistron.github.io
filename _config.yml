@@ -2,7 +2,7 @@
 permalink:           pretty
 
 # Setup
-title:               'The roots of the tree of knowledge are bitter'
+title:               'The roots of knowledge are bitter'
 tagline:             'but the fruits are sweet'
 description:         'Teaching materials and ruminations by Dr. Michael Baron.'
 url:                 http://cistron.github.io
@@ -11,7 +11,7 @@ baseurl:             ''
 # About/contact
 author:
   name:              Michael Baron
-  url:               https://twitter.com/photo_receptor
+  url:               https://iris.ucl.ac.uk/iris/browse/profile?upi=MBARO00
   email:             michael.baron@ucl.ac.uk
 
 include: ["_splats"]
