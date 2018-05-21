@@ -35,9 +35,9 @@ Then select the upper `gel.tif` copy to adjust contrast to taste. The histogram 
 
 ![Adjust the black and white point in the histogram]({{ "/splats/images/figure1/fig3.png" | absolute_url }})
 
-Adjusting levels is an irreversible process in `GIMP`. If you are unhappy with your results, delete the offending layer (select it and click the little trash-can icon) and start anew. Do not readjust, as this may create banding and other artefacts such as banding or halos in your gel image.
+Adjusting levels is an irreversible process in `GIMP`. If you are unhappy with your results, delete the offending layer (select it and click the little `rubbish-bin icon`) and start anew. Do not readjust, as this may create banding or halo artefacts in your gel image.
 
-Once you are happy with your settings, export the image as a `.tif` image via the menu `File > Export As...`. Use a descriptive name such as `gel_inverted_contrast.tif`.
+Once you are happy with your settings, export the image as a `.tif` file via the menu `File > Export As...`. Use a descriptive name such as `gel_inverted_contrast.tif`.
 
 <p class="message">Never overwrite original research images! Some journals even require them for authentication purposes.</p>
 
