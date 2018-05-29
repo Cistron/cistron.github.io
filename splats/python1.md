@@ -17,13 +17,17 @@ Python is a high level programming language; there is no need to take care of me
 
 We will be writing code in a [Jupyter Notebook](http://jupyter.org/), quasi a code editor, code interpreter and lab-book in a browser. Notebooks are great for building code or data analysis 'stories', as you get to see the history of your input and outputs.
 
-The following video on Youtube provides a [quick introduction to Juypter Notebooks](https://www.youtube.com/watch?v=jZ952vChhuI) and introduces the majority of the core features you need for this workshop. For deeper inmersion, have a look at a longer, more [in-depth introduction](https://www.youtube.com/watch?v=UyxuLHLzDLA) on all the extra bits and bobs ('magics') of Jupyter, which makes it special.
+The following video on Youtube provides a [quick introduction to Juypter Notebooks](https://www.youtube.com/watch?v=jZ952vChhuI) and introduces the majority of the core features you need for this workshop.
 
-![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_notebook.png" | absolute_url }})
+[![A quick introduction to Juypter](https://img.youtube.com/vi/jZ952vChhuI/maxresdefault.jpg)](http://www.youtube.com/watch?v=jZ952vChhuI "A quick introduction to Juypter")
 
-In UCL cluster rooms, Jupyter comes preinstalled as part of the Anaconda Python distribution. You should be able to find and launch it by typing 'jupyter' into the start menu.
+For deeper inmersion, have a look at a longer, more [in-depth introduction](https://www.youtube.com/watch?v=UyxuLHLzDLA) on all the extra bits and bobs ('magics') of Jupyter, which makes it special.
 
-![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_ucl_cluster.png" | absolute_url }})
+<!-- ![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_notebook.png" | absolute_url }}) -->
+
+In UCL cluster rooms, Jupyter comes preinstalled as part of the Anaconda Python distribution. You should be able to find and launch it by typing '`jupyter`' into the start menu.
+
+<!-- ![Launching Jupyter on UCL cluster PC]({{ "/splats/images/python1/jupyter_ucl_cluster.png" | absolute_url }}) -->
 
 If you like to use your personal computer, you can download the same distribution from the [Anaconda website](https://www.anaconda.com/download/); make sure to download **version 3.6** (or higher) of Python.
 
