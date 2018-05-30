@@ -5,7 +5,7 @@ title: Introduction to programming with Python
 
 This tutorial will provide you with a little taster introduction to programming. In small steps you will learn about basic syntax and routines and apply them to play the children's word and number game *Fizz Buzz* (more on this later).
 
-## Why Python?
+## 1 Why Python?
 
 Python frequently claims a spot in the top spot of the world's most popular programming languages and [the ranks of its followers are growing rapidly](https://stackoverflow.blog/2017/09/06/incredible-growth-python/). It is a general purpose language, which feels at home almost anywhere - from running a web application to data analysis in scientific research. Consequently, a whole plethora of packages or libraries (maintained code for reuse) are available.
 
@@ -13,7 +13,7 @@ Python is a high level programming language; there is no need to take care of me
 
 <!-- This tutorial is not necessarily all about Python, as programming concepts are shared between languages. -->
 
-## Jupyter Notebook
+## 2 Jupyter Notebook
 
 We will be writing code in a [Jupyter Notebook](http://jupyter.org/), quasi a code editor, code interpreter and lab-book in a browser. Notebooks are great for building code or data analysis 'stories', as you get to see the history of your input and outputs.
 
@@ -31,7 +31,7 @@ In UCL cluster rooms, Jupyter comes preinstalled as part of the Anaconda Python 
 
 If you like to use your personal computer, you can download the same distribution from the [Anaconda website](https://www.anaconda.com/download/); make sure to download **version 3.6** (or higher) of Python.
 
-## FizzBuzz!?
+## 3 FizzBuzz!?
 
 As mentioned previously, you'll get to implement a children's game in code. [Fizz Buzz](https://en.wikipedia.org/wiki/Fizz_buzz) is often played by children sitting in a circle, counting from one upwards. However, at every multiple of 3, the player has to shout 'Fizz' and at every multiple of 5, 'Buzz'. At multiples of 5 and 3, this has to be combined into 'FizzBuzz'.
 
@@ -39,7 +39,7 @@ Hence, it would go along the lines of `1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Bu
 
 Now don't snuff at this quite yet, as thousands of programmers are challenged with *FizzBuzz* in their interviews. Though seemingly easy, one can implement more and more difficult aspects of programming into the game.
 
-## S'up, Pythonistas?
+## 4 S'up, Pythonistas?
 
 We can print strings of characters in Python by using the `print()` command. Entering
 
@@ -51,7 +51,7 @@ into one of the Jupyter cells and executing it with `shift+enter` (or the play b
 
 Thanks to the Jupyter notebook, you can always edit cells and re-execute them. Make some deliberate (syntax) errors and see what error message are returned to you. Usually they provide a good clue about what went wrong.
 
-## Help! Algebra
+## 5 Help! Algebra
 
 In order to play our game, we will have to implement a tiiiny bit of algebra and learn about variables and conditional statements.
 
@@ -61,7 +61,7 @@ You can carry out just by typing numbers and operators in the Juypter cells. Hen
 
 Have a play. Maths is cool!
 
-## Variables - persistent little devils
+## 6 Variables - persistent little devils
 
 So far, all the code you've typed won't persist. In order to recall information we can pass it between lines of codes, we need to store it in a variable.
 
@@ -94,7 +94,7 @@ There are many of different types of variables and data structures. Some more wi
 
 The function `type()` will tell you which variable type you are dealing with. `type(some_text)` should return `str` for *string* (or sequences of characters). The number variable we created earlier, will return either `int` for *integer* or `float` for *floating point number* (i.e. number has a decimal point).
 
-## Let me check that for you
+## 7 Let me check that for you
 
 Most programming languages (and Python indeed as well) come with a range of **comparison operations**. This allows the validation of a statement into a simple **Boolean** value of `True` or `False` (this exact spelling in Python). For example:
 
@@ -118,7 +118,7 @@ current_count = 3
 current_count % 3 == 0
 ```
 
-# What if ...
+## 8 What if ...
 
 ... you wanted to execute a bunch of code only under certain circumstances? 
 
@@ -158,7 +158,7 @@ if a_number < 15 or a_number > 5:
     print('The number is either larger than 5, or smaller than 15')
 ```
 
-## Things are abuzz
+## 9 Things are abuzz
 
 Now that you have learned how to use comparisons and if-statements, write your own `if` and `elif` code to evaluate a number for *Fizz Buzz*.
 
@@ -166,7 +166,22 @@ Hint: Remember the modulo operator (`%`) and that numbers divisible by `3` shoul
 
 Make sure to test your code with serval input numbers (e.g. 3, 5, 15 and some non-mulitples of 3 and/or 5).
 
-## 1, 2, ... many
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
+{% highlight python %}
+a_number = input('Enter an integer')
+# input() allows you to interact with your programme
+if a_number%15 == 0:
+    print('FizzBuzz')
+elif a_number%3 == 0:
+    print('Fizz')
+elif a_number%5 == 0:
+    print('Buzz')
+else:
+    print(a_number)
+{% endhighlight %}
+</details>
+
+## 10 One, two, ... many
 
 Now that you have figured out how to evaluate numbers, we need to keep them coming. Testing each number by hand is tedious. This is where **loops** come in. A `for` loop will continuously step through elements in a sequence.
 
@@ -213,7 +228,7 @@ for count in range(20):
 
 In this case the loop will evaluate the number 0 to 19.
 
-## Ooooh, Fizzy
+## 11 Ooooh, Fizzy
 
 Now that you know how to count up with a `for` loop, combine this with your evaluative `if` statements to play a short game of *Fizz Buzz*. Test several number ranges.
 
@@ -223,25 +238,24 @@ Whenever you are working on more complicated programmes, it greatly helps to con
 
 This can be done on the back of a napkin, or in this case with a drawing software (draw.io). Feel free to clone [this *Fizz Buzz* flow chart](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=fizzbuzz_algorithm.html#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12Zj8lTX_aF-iXCBaeiRmu_NJjOiUckr9%26export%3Ddownload) and expand and adopt it for a more versatile algorithm later.
 
-## Redundancy makes coders itch
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
+{% highlight python %}
+for i in range(1,101):
+    if i%15 == 0:
+        print('FizzBuzz', end=", ")
+    elif i%3 == 0:
+        print('Fizz', end=", ")
+    elif i%5 == 0:
+        print('Buzz', end=", ")
+    else:
+        print(i, end=", ")
+{% endhighlight %}
+<!-- Note: `end=", "` in the `print` statement leads to everything being printed on a single line separated by commas. -->
+</details>
 
-If you followed the provided algorithm, your code will likely be very similar to the example below. `end=", "` leads to everything being printed on a single line separated by commas.
+## 12 Redundancy makes coders itch
 
-<p>
-    <details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
-    {% highlight python %}
-    for i in range(1,101):
-        if i%15 == 0:
-            print('FizzBuzz', end=", ")
-        elif i%3 == 0:
-            print('Fizz', end=", ")
-        elif i%5 == 0:
-            print('Buzz', end=", ")
-        else:
-            print(i, end=", ")
-    {% endhighlight %}
-    </details>
-</p>
+If you followed the provided algorithm, your code will likely be very similar to the example below.
 
 Programmers are lazy, because simpler code is easier to maintain as it requires less edits.
 
@@ -249,7 +263,7 @@ In the example above, you'll find many print statements and even a superfluous c
 
 Let's simplify it and make the code more versatile.
 
-## How long is a piece of string?
+## 13 How long is a piece of string?
 
 At the beginning you experimented with a bit of basic algebra, using standard maths operators (`+-*/`) on integers or floats. We can use some of these operators on strings, where they have different effects. Where operators have different effects based on the context, this is known as **operator overloading**.
 
@@ -285,7 +299,21 @@ Note that `+=` is a shorter notation of `output = output + ...`: take a variable
 
 How could you rewrite your code to make use of this and thus reduce the number of `if`- and `print`-statements? Do some back-of-the-napkin algorithm design before you modify your code.
 
-## Function over form
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
+{% highlight python %}
+for i in range(1,101):
+    output = ""
+    if i%3 == 0:
+        output += 'Fizz'
+    if i%5 == 0:
+        output += 'Buzz'
+    if output == '':
+        output = i
+    print(output, end=', ')
+{% endhighlight %}
+</details>
+
+## 14 Function over form
 
 Say you wanted to use your code to play *Fizz Buzz* twice, but for different amount of times (counting higher). The easiest way would be to copy and paste your code and edit the `range()` function. Though now you duplicated the code and maintenance has doubled.
 
@@ -313,11 +341,28 @@ print(temp_in_c)
 
 Experiment a little, maybe write the reverse function to convert Celsius to Fahrenheit (no idea why anyone would ever need this though). Then wrap your *Fizz Buzz* code in a function declaration. What parameter would you pass it?
 
-## Fizz, Buzz, Bang, etc.
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
+{% highlight python %}
+def fizz_buzz (length=100):
+    """Plays the children's game FizzBuzz up to the count of input. Default is 100"""
+    for i in range(1,length+1):
+        output = ""
+        if i%3 == 0:
+            output += 'Fizz'
+        if i%5 == 0:
+            output += 'Buzz'
+        if output == '':
+            output = i
+        print(output, end=', ')
+fizz_buzz(50)
+{% endhighlight %}
+</details>
+
+## 15 Fizz, Buzz, Bang, etc.
 
 If you made it this far: congratulations. The next couple of points are more difficult challenges to make the *Fizz Buzz* function more versatile.
 
-* So far the parameters of the game are hardwired. 'Fizz' is always called at multiples of 3 and 'Buzz' at multiples of 5. What if you wanted more flexibility?
+1. So far the parameters of the game are hardwired. 'Fizz' is always called at multiples of 3 and 'Buzz' at multiples of 5. What if you wanted more flexibility?
 
     Hint: functions can be passed more than just one parameter. And you can even define defaults.
 
@@ -326,9 +371,9 @@ If you made it this far: congratulations. The next couple of points are more dif
         ...
     ```
 
-* How about more complexity? Add another parameter, `bang`.
+2. How about more complexity? Add another parameter, `bang`.
 
-* Complete flexibility? Unshackle the function completely from a fixed set of parameters.
+3. Complete flexibility? Unshackle the function completely from a fixed set of parameters.
 
     Hint: you can also pass *lists* (`['fizz','buzz','bang']`, `[3,4,5]`) through function parameters. You will need to iterate over both input lists.
 
@@ -339,7 +384,7 @@ If you made it this far: congratulations. The next couple of points are more dif
         print('The item "{}" is at index "{}"'.format(item,index))
     ```
 
-* Avoid having to match two input lists.
+4. Avoid having to match two input lists.
 
     Hint: use dictionaries, which are always key and value pairs.
 
@@ -350,7 +395,79 @@ If you made it this far: congratulations. The next couple of points are more dif
         print('The key is "{}" and its value is "{}"'.format(key, value))
     ```
 
-## Further (mostly free) resources
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code for 1</summary>
+{% highlight python %}
+# Add input variables for FizzNumber, BuzzNumber
+def fizz_buzz (fizz_number=3, buzz_number=5, length=100):
+    """Plays the children's game FizzBuzz up to the count of input. Default is 100"""
+    for i in range(1,length+1):
+        output = ""
+        if i%fizz_number == 0:
+            output += 'Fizz'
+        if i%buzz_number == 0:
+            output += 'Buzz'
+        if output == '':
+            output = i
+        print(output, end=', ')
+fizz_buzz(2,7,50) # default parameters overwritten
+{% endhighlight %}
+</details>
+
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code for 2</summary>
+{% highlight python %}
+# Make the game more complicated - FizzBuzzBang
+def fizz_buzz_bang (fizz_bumber=3, buzz_number=5, bang_number=4, length=100):
+    """Plays the children's game FizzBuzz up to the count of input. Default is 100"""
+    for i in range(1,length+1):
+        output = ""
+        if i%fizz_bumber == 0:
+            output += 'Fizz'
+        if i%buzz_number == 0:
+            output += 'Buzz'
+        if i%bang_number == 0:
+            output += 'Bang'
+        if output == '':
+            output = i
+        print(output, end=', ')
+fizz_buzz_bang(length=60)
+{% endhighlight %}
+</details>
+
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code for 3</summary>
+{% highlight python %}
+# Input list of terms and numbers
+def fizz_buzz (numbers=[3,4,5],terms=['Fizz','Buzz','Bang'],length=100):
+    if len(numbers) != len(terms):
+        raise ValueError('illegal arguments, numbers and terms do not match up')
+    for i in range(1,length+1):
+        output = ""
+        for index, item in enumerate(terms):
+            if i%numbers[index] == 0:
+                output += item
+        if output == '':
+            output = i
+        print(output, end=', ')
+fizz_buzz() # called with default parameters
+{% endhighlight %}
+</details>
+
+<details><summary><strong>Careful Spoilers</strong>: Click to reveal code for 4</summary>
+{% highlight python %}
+# Input terms and numbers as dictionary, so we don't have to match inherently connected input arguments
+def fizz_buzz (terms_and_numbers={'Fizz':3, 'Buzz':5},length=100):
+    for i in range(1,length+1):
+        output = ""
+        for term, number in terms_and_numbers.items():
+            if i%number == 0:
+                output += term
+        if output == '':
+            output = i
+        print(output, end=', ')
+fizz_buzz({'Awesome':3,'Dude':5},20)
+{% endhighlight %}
+</details>
+
+## 16 Further (mostly free) resources
 
 In order to get better at coding, as with any skill, you need deliberate praxis.
 
