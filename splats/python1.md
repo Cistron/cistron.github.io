@@ -168,8 +168,9 @@ Make sure to test your code with serval input numbers (e.g. 3, 5, 15 and some no
 
 <details><summary><strong>Careful Spoilers</strong>: Click to reveal code</summary>
 {% highlight python %}
-a_number = input('Enter an integer')
+a_number = int(input('Enter an integer'))
 # input() allows you to interact with your programme
+# and int() converts the input to an integer (otherwise it is a string)
 if a_number%15 == 0:
     print('FizzBuzz')
 elif a_number%3 == 0:
