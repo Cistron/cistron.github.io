@@ -15,5 +15,7 @@ Here's a list of interesting stuff.
 * [Creating a gel electrophoresis figure with GIMP and Inkscape](\splats\figure1)
     * [A checklist for better figures](\splats\figure_checklist)
 
+## More stuff
 
+* [HPC: Accessing Cirrus and installing QIIME](\splats\hpc1)
 
