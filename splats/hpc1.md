@@ -37,7 +37,7 @@ Your login account request is handled by a real person: [Dr. Gavin Pringle](http
 
 Once Dr. Pringle has approved your account, you will receive another email.
 
-Log into the [Tier 2 SAFE](https://www.archer.ac.uk/tier2/) again. When you mouse over `login accounts`, you should now see the username you picked next to `@Cirrus` listed in the menu.
+Log onto the [Tier 2 SAFE](https://www.archer.ac.uk/tier2/) again. When you mouse over `login accounts`, you should now see the username you picked next to `@Cirrus` listed in the menu.
 
 Click on the link to get taken to your `Login accounts details`, which contains usage and budget statistics for your HPC use (more about this in term 2).
 
@@ -47,7 +47,9 @@ Click on `View Login Account Password` to see you login password. Select your pa
 
 ![Cirrus login password]({{ "/splats/images/hpc1/cirrus_login_password.png" | absolute_url }})
 
-In order to log onto cirrus, start your terminal application of choice (e.g. Git Bash for Windows or Terminal.app on MacOS) and execute the following command. From now on, replace `mbaron` with your username.
+In order to log onto cirrus, start your terminal application of choice (e.g. Git Bash for Windows or Terminal.app on MacOS) and execute the following command. 
+
+**All the example commands use my username - `mbaron`. Make sure to replace it with your username.**
 
 ```bash
 ssh mbaron@login.cirrus.ac.uk
@@ -57,9 +59,9 @@ You will be asked to confirm the host authenticity by typing `yes` (and hitting 
 
 Following this, you will be prompted to enter the password you picked up from the Tier 2 SAFE. As we copied this into the clipboard, you can just paste it here. On a Mac, use `Cmd+V`, on the Windows GitBash this won't work; by default paste is set to right-click.
 
-**Please note! The password cursor won't move. No matter much you type of paste!**
+**Please note! The password cursor won't move. No matter how much you type or paste!**
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ssh mbaron@login.cirrus.ac.uk
 The authenticity of host 'login.cirrus.ac.uk (129.215.175.28)' can't be established.
 ECDSA key fingerprint is SHA256:EJp7y5JzeMseazlGb8qOQuGd52xw1SncA7m60G7axyI.
@@ -73,9 +75,9 @@ You will be greeted on Cirrus by a welcome message (and potentially other system
 
 First paste the same password again (note the prompt mentions `(current) UNIX password`). Then you'll be asked to enter you new password twice. You are free to chose any password, though I would recommend using a password safe to autogenerate a password and paste it, rather than type it.
 
-**Again, please not that the cursor won't move for password entry!**
+**Again, please note that the cursor won't move for password entry!**
 
-```output
+```
 mbaron@login.cirrus.ac.uk's password:
 You are required to change your password immediately (root enforced)
 Last login: Wed Nov  7 11:43:16 2018 from dhcp179175.biochem.ucl.ac.uk
@@ -120,12 +122,12 @@ ls -al ~/.ssh
 
 If the output is a `No such file or directory` error, or if neither `id_rsa` or `id_rsa.pub` are present, you will have to create keys.
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 ls: cannot access /home/mbaron/.ssh: No such file or directory
 ```
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 total 8
 -rw-------. 1 mbaron mbaron 747 Feb 13  2018 authorized_keys
@@ -146,7 +148,7 @@ Finally you are prompted to enter a passphrase. The official recommendation is t
 
 If you want to use a passphrase, have a read on how to use an [SSH-agent to manage your passphrases for you](https://www.ssh.com/ssh/agent).
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ssh-keygen -t rsa -b 4096
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/mbaron/.ssh/id_rsa):
@@ -178,7 +180,7 @@ ls -l ~/.ssh
 
 `id_rsa.pub` is your public key, which you will share with the world, whilst `id_rsa` is your private key, which you should **not** share with anyone.
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 total 16
 -rw-------. 1 mbaron mbaron  747 Feb 13  2018 authorized_keys
@@ -199,7 +201,7 @@ You will be promoted to enter your password for Cirrus. This should be the last 
 
 **Please note that this needs to be the new password you created earlier, not the one from the SAFE!**
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ssh-copy-id -i ~/.ssh/id_rsa.pub mbaron@login.cirrus.ac.uk
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/mbaron/.ssh/id_rsa.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
@@ -224,11 +226,11 @@ Once your keys are on Cirrus, you should be able to log on without having to ent
 ssh mbaron@login.cirrus.ac.uk
 ```
 
-Notice that your command prompt (the text before your blinking cursor) changes, depending on the system you are currently on. In the example output below `[mbaron@partridge-wd00 ~]$` for my local desktop machine and `mbaron:~$` while on Cirrus - in both cases `~` indicated the user home directory.
+Notice that your command prompt (the text before your blinking cursor) changes, depending on the system you are currently on. In the example output below `[mbaron@partridge-wd00 ~]$` for my local desktop machine and `mbaron:~$` while on Cirrus - in both cases `~` indicates the user home directory.
 
 Log off Cirrus again with the `exit` command.
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ ssh mbaron@login.cirrus.ac.uk
 Last failed login: Wed Nov  7 15:58:23 GMT 2018 from partridge-wd00.biochem.ucl.ac.uk on ssh:notty
 There was 1 failed login attempt since the last successful login.
@@ -292,7 +294,7 @@ Check the contents of the file you created using the concatenate (`cat`) command
 cat ~/.ssh/config
 ```
 
-```output
+```
 [mbaron@partridge-wd00 ~]$ vim ~/.ssh/config
 [mbaron@partridge-wd00 ~]$ cat ~/.ssh/config
 IdentityFile ~/.ssh/id_rsa
@@ -309,7 +311,7 @@ You should now be able to connect to Cirrus using the much shorter command `ssh 
 
 If you receive a permission error, as below, update the file permissions using `chmod 600 ~/.ssh/config` and `chown $USER ~/.ssh/config`.
 
-```output
+```
 [mbaron@partridge-wd00 .ssh]$ ssh cirrus
 Bad owner or permissions on /home/mbaron/.ssh/config
 [mbaron@partridge-wd00 .ssh]$ chmod 600 ~/.ssh/config
@@ -319,7 +321,7 @@ Bad owner or permissions on /home/mbaron/.ssh/config
 
 Before installing QIIME, we need to setup a local temporary directory. QIIME writes lots of temporary data, which could potentially break parts of the supercomputer. **Hence, this step is very important!** This is noted in every welcome message when you log onto Cirrus (see below).
 
-```output
+```
 ****  TMPDIR *must* be set if you are using Qiime1.           ****
 ****  Please contact g.pringle@epcc.ed.ac.uk for assistance.  ****
 ```
@@ -341,7 +343,7 @@ module list
 
 Make sure to load `miniconda/python2` (not version 3).
 
-```output
+```
 mbaron:~$module avail miniconda
 
 -------------------------------------- /lustre/sw/modulefiles --------------------------------------
@@ -362,7 +364,7 @@ conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
 
 After fetching packages (could take a minute or two) and informing you about which packages will be installed, you need to confirm the installation procedure with `y`.
 
-```output
+```
 mbaron:~$conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
 Fetching package metadata ...........
 Solving package specifications: .
@@ -391,7 +393,7 @@ Proceed ([y]/n)? y
 
 Now you can hang back and watch the installer download and install all the packages. This may take a minute or two.
 
-```output
+```
 blas-1.0-mkl.t 100% |####################################################| Time: 0:00:00   1.37 MB/s
 libgfortran-3. 100% |####################################################| Time: 0:00:00   8.64 MB/s
 libiconv-1.14- 100% |####################################################| Time: 0:00:00  20.07 MB/s
@@ -419,7 +421,7 @@ print_qiime_config.py -t
 
 You should see the command prompt change, with the environment name (here `qiime1`) prepended in parentheses. The script will output the versions of software dependencies, as well as other QIIME configuration information (useful for trouble shooting). If the installation was successful, you should pass all 9 tests.
 
-```output
+```
 mbaron:~$source activate qiime1
 (qiime1) mbaron:~$print_qiime_config.py -t
 
@@ -506,7 +508,7 @@ exit
 
 You should see the command prompt change twice, once when the environment is closed and once more when you log off Cirrus.
 
-```output
+```
 (qiime1) mbaron:~$source deactivate
 mbaron:~$exit
 logout
