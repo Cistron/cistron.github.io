@@ -17,11 +17,11 @@ Fill in the form, using your UCL email address and UCL's address. Unfortunately,
 
 Once your data is processed, you will receive an email informing you of your account creation and how to set a password for your SAFE account.
 
-In the menu mouse-over `login accounts` and click on `request login accounts`.
+Once logged into the Tier2 SAFE, in the menu mouse-over `login accounts` and click on `request login accounts`.
 
 ![Login Accounts menu]({{ "/splats/images/hpc1/login_accounts.png" | absolute_url }})
 
-In the `projects` dropdown menu select `d411` about one third of the way down. Click `Next` and `Next` again on the following page.
+On the next page, in the `projects` dropdown menu select `d411` about one third of the way down. Click `Next` and `Next` again on the following page (Cirrus will be the only option).
 
 ![Login account request, project]({{ "/splats/images/hpc1/login_account_project.png" | absolute_url }})
 
@@ -49,15 +49,15 @@ Click on `View Login Account Password` to see you login password. Select your pa
 
 In order to log onto cirrus, start your terminal application of choice (e.g. Git Bash for Windows or Terminal.app on MacOS) and execute the following command. 
 
-**All the example commands use my username - `mbaron`. Make sure to replace it with your username.**
+**Note: All the example commands use my username** - `mbaron`. **Make sure to replace it with your username whenever you see it.**
 
 ```bash
 ssh mbaron@login.cirrus.ac.uk
 ```
 
-You will be asked to confirm the host authenticity by typing `yes` (and hitting enter). This will add `login.cirrus.ac.uk` to your lists of known hosts (in `~/.ssh/known_hosts`).
+You will be asked to confirm the host authenticity by typing `yes` (and hitting enter). This will add `login.cirrus.ac.uk` to your lists of known hosts.
 
-Following this, you will be prompted to enter the password you picked up from the Tier 2 SAFE. As we copied this into the clipboard, you can just paste it here. On a Mac, use `Cmd+V`, on the Windows GitBash this won't work; by default paste is set to right-click.
+Following this, you will be prompted to enter the password you picked up from the Tier 2 SAFE. As you copied this into the clipboard, you can just paste it here.
 
 **Please note! The password cursor won't move. No matter how much you type or paste!**
 
@@ -109,6 +109,8 @@ passwd: all authentication tokens updated successfully.
 Connection to login.cirrus.ac.uk closed.
 [mbaron@partridge-wd00 ~]$
 ```
+
+Once you entered your new password, you will be automatically logged off Cirrus.
 
 ## Creating SSH keys
 
@@ -304,7 +306,6 @@ Host cirrus
 Host cirrus_data
 	User mbaron
 	Hostname dsn.cirrus.ac.uk
-[mbaron@partridge-wd00 .ssh]$
 ```
 
 You should now be able to connect to Cirrus using the much shorter command `ssh cirrus`.
@@ -317,16 +318,115 @@ Bad owner or permissions on /home/mbaron/.ssh/config
 [mbaron@partridge-wd00 .ssh]$ chmod 600 ~/.ssh/config
 ```
 
+## Installing Python on Cirrus
+
+QIIME is a collection of software tools bundled together and connected by Python code. Both for the installation and in order to execute QIIME Python is needed.
+
+[`Miniconda`](https://conda.io/miniconda.html) is a lightweight Python distribution, which comes with a handy package manager called `conda`.
+
+On Cirrus, download *Miniconda* using `wget`. Note, you are downlading the 64bit version for linux.
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+```
+mbaron:~$wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+--2018-11-12 11:22:34--  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+Resolving repo.anaconda.com (repo.anaconda.com)... 104.17.109.77, 104.17.111.77, 104.17.110.77, ...
+Connecting to repo.anaconda.com (repo.anaconda.com)|104.17.109.77|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 62574861 (60M) [application/x-sh]
+Saving to: ‘Miniconda3-latest-Linux-x86_64.sh’
+
+100%[======================================================>] 62,574,861   102MB/s   in 0.6s
+
+2018-11-12 11:22:34 (102 MB/s) - ‘Miniconda3-latest-Linux-x86_64.sh’ saved [62574861/62574861]
+```
+
+Once the download has completed, you need to execute the file to start the installation by passing it to the `bash` command.
+
+```bash
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+You will be prompted to interact with the installation process a few times.
+
+* First hit `Enter` to continue the installation. Once you see the license agreement, either scroll down and confirm by typing `yes`.
+* Then hit `Enter` to confirm its default installation path in your home directory. 
+* Finally, type `yes` to have *Miniconda* added to your `PATH` variable. This will allow you to use *Miniconda* as your default Python.
+
+```
+mbaron:~$bash Miniconda3-latest-Linux-x86_64.sh
+
+Welcome to Miniconda3 4.5.11
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+>>>
+===================================
+Miniconda End User License Agreement
+===================================
+
+Copyright 2015, Anaconda, Inc.
+
+All rights reserved under the 3-clause BSD License:
+
+*** snip ***
+
+Cryptography Notice
+===================
+
+This distribution includes cryptographic software. The country in which you currently reside may
+
+Do you accept the license terms? [yes|no]
+[no] >>> yes
+
+Miniconda3 will now be installed into this location:
+/lustre/home/d411/mbaron/miniconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/lustre/home/d411/mbaron/miniconda3] >>>
+PREFIX=/lustre/home/d411/mbaron/miniconda3
+installing: python-3.7.0-hc3d631a_0 ...
+Python 3.7.0
+installing: ca-certificates-2018.03.07-0 ...
+installing: conda-env-2.6.0-1 ...
+installing: libgcc-ng-8.2.0-hdf63c60_1 ...
+
+*** snip ***
+
+installing: urllib3-1.23-py37_0 ...
+installing: requests-2.19.1-py37_0 ...
+installing: conda-4.5.11-py37_0 ...
+installation finished.
+Do you wish the installer to prepend the Miniconda3 install location
+to PATH in your /lustre/home/d411/mbaron/.bashrc ? [yes|no]
+[no] >>> yes
+
+Appending source /lustre/home/d411/mbaron/miniconda3/bin/activate to /lustre/home/d411/mbaron/.bashrc
+A backup will be made to: /lustre/home/d411/mbaron/.bashrc-miniconda3.bak
+
+
+For this change to become active, you have to open a new terminal.
+
+Thank you for installing Miniconda3!
+```
+
 ## Installing QIIME on Cirrus
 
-Before installing QIIME, we need to setup a local temporary directory. QIIME writes lots of temporary data, which could potentially break parts of the supercomputer. **Hence, this step is very important!** This is noted in every welcome message when you log onto Cirrus (see below).
+Before installing QIIME, you need to setup a local temporary directory. QIIME writes lots of temporary data, which could potentially break parts of the supercomputer. **Hence, this step is very important!** This is noted in every welcome message when you log onto Cirrus (see below).
 
 ```
 ****  TMPDIR *must* be set if you are using Qiime1.           ****
 ****  Please contact g.pringle@epcc.ed.ac.uk for assistance.  ****
 ```
 
-Create a new directory using the `mkdir` command and use `export` to set it as a new environment variable. In order for this to happen every time you log on, we add this command to `.bashrc` (a script run every time a shell is started in interactive mode). We then load ('refresh') `.bashrc` in the current shell session with `source`.
+Create a new directory using the `mkdir` command and use `export` to set it as a new environment variable. In order for this to happen every time you log on, you add this command to `.bashrc` (a script run every time a shell is started in interactive mode). You then load ('refresh') `.bashrc` in the current shell session with `source`.
 
 ```bash
 mkdir ~/qiime_tmp
@@ -334,27 +434,7 @@ echo "export TMPDIR=~/qiime_tmp" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-On Cirrus, you have access to a whole range of centrally installed software. For easy QIIME installation we will load *Miniconda* a Python distribution with a handy package manager called *conda* using the `module load` command. You can check which modules are loaded with the `module list` command and query available packages with `module avail`.
-
-```bash
-module load miniconda/python2
-module list
-```
-
-Make sure to load `miniconda/python2` (not version 3).
-
-```
-mbaron:~$module avail miniconda
-
--------------------------------------- /lustre/sw/modulefiles --------------------------------------
-miniconda/python2 miniconda/python3
-mbaron:~$module load miniconda/python2
-mbaron:~$module list
-Currently Loaded Modulefiles:
-  1) miniconda/python2
-```
-
-With *Miniconda* loaded, we can us its `conda` package manager to install QIIME with a single command. Best to copy & paste this. More information on QIIME installation can be found on the [developers' website](http://qiime.org/install/install.html).
+*Miniconda* and its `conda` package manager makes it possible to install QIIME with a single command. Best to copy & paste this. More information on QIIME installation can be found on the [developers' website](http://qiime.org/install/install.html).
 
 The command will install a whole range of software-packages with precisely defined version in a virtual environment called `qiime1`. This prevents any previously installed software from breaking interactions between all the different packages.
 
@@ -366,49 +446,73 @@ After fetching packages (could take a minute or two) and informing you about whi
 
 ```
 mbaron:~$conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
-Fetching package metadata ...........
-Solving package specifications: .
-Warning: 4 possible package resolutions (only showing differing packages):
-  - bioconda::qiime-1.9.1-np110py27_0, bioconda::scikit-bio-0.2.3-np110py27_0
-  - bioconda::qiime-1.9.1-np110py27_0, bioconda::scikit-bio-0.2.3-py27_0
-  - bioconda::qiime-1.9.1-py27_0, bioconda::scikit-bio-0.2.3-np110py27_0
-  - bioconda::qiime-1.9.1-py27_0, bioconda::scikit-bio-0.2.3-py27_0
+Solving environment: done
 
-Package plan for installation in environment /lustre/home/d411/mbaron/.conda/envs/qiime1:
+## Package Plan ##
+
+  environment location: /lustre/home/d411/mbaron/miniconda3/envs/qiime1
+
+  added / updated specs:
+    - matplotlib=1.4.3
+    - mock
+    - nose
+    - python=2.7
+    - qiime
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    qiime-default-reference-0.1.3|             py_1        20.6 MB  bioconda
+    prompt_toolkit-1.0.15      |           py27_0         333 KB
+    pyqt-4.11.4                |           py27_4         3.3 MB
+
+*** snip ***
+
+    pbr-5.1.0                  |           py27_0         121 KB
+    certifi-2018.10.15         |           py27_0         139 KB
+    scandir-1.9.0              |   py27h14c3975_0          28 KB
+    ------------------------------------------------------------
+                                           Total:       442.8 MB
 
 The following NEW packages will be INSTALLED:
 
-    backports:               1.0-py27_0
-    biom-format:             2.1.5-py27_4         bioconda
-    blas:                    1.0-mkl
+    backports:                          1.0-py27_1
+    backports.shutil_get_terminal_size: 1.0.0-py27_2
+    biom-format:                        2.1.7-py27_0            bioconda
 
-    *** many more packages, removed for brevity sake ***
+*** snip ***
 
-    wcwidth:                 0.1.7-py27_0
-    wheel:                   0.29.0-py27_0
-    zlib:                    1.2.11-0
+    wheel:                              0.32.2-py27_0
+    xz:                                 5.2.4-h14c3975_4
+    zlib:                               1.2.11-ha838bed_2
 
 Proceed ([y]/n)? y
 ```
 
-Now you can hang back and watch the installer download and install all the packages. This may take a minute or two.
+Now you can hang back and watch the installer download and install all the packages. This may take a few minutes.
 
 ```
-blas-1.0-mkl.t 100% |####################################################| Time: 0:00:00   1.37 MB/s
-libgfortran-3. 100% |####################################################| Time: 0:00:00   8.64 MB/s
-libiconv-1.14- 100% |####################################################| Time: 0:00:00  20.07 MB/s
+Downloading and Extracting Packages
+qiime-default-refere | 20.6 MB   | ##################################################### | 100%
+prompt_toolkit-1.0.1 | 333 KB    | ##################################################### | 100%
+pyqt-4.11.4          | 3.3 MB    | ##################################################### | 100%
 
-*** many more packages, removed for brevity sake ***
+*** snip ***
 
-emperor-0.9.51 100% |####################################################| Time: 0:00:00  25.91 MB/s
-pynast-1.2.2-p 100% |####################################################| Time: 0:00:00  11.52 MB/s
-qiime-1.9.1-np 100% |####################################################| Time: 0:00:01   9.59 MB/s
+pbr-5.1.0            | 121 KB    | ##################################################### | 100%
+certifi-2018.10.15   | 139 KB    | ##################################################### | 100%
+scandir-1.9.0        | 28 KB     | ##################################################### | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
 #
 # To activate this environment, use:
 # > source activate qiime1
 #
-# To deactivate this environment, use:
-# > source deactivate qiime1
+# To deactivate an active environment, use:
+# > source deactivate
 #
 ```
 
@@ -428,8 +532,8 @@ mbaron:~$source activate qiime1
 System information
 ==================
          Platform:	linux2
-   Python version:	2.7.13 |Continuum Analytics, Inc.| (default, Dec 20 2016, 23:09:15)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
-Python executable:	/lustre/home/d411/mbaron/.conda/envs/qiime1/bin/python
+   Python version:	2.7.15 |Anaconda, Inc.| (default, Oct 23 2018, 18:31:10)  [GCC 7.3.0]
+Python executable:	/lustre/home/d411/mbaron/miniconda3/envs/qiime1/bin/python
 
 QIIME default reference information
 ===================================
@@ -441,12 +545,12 @@ Dependency versions
           QIIME library version:	1.9.1
            QIIME script version:	1.9.1
 qiime-default-reference version:	0.1.3
-                  NumPy version:	1.10.4
-                  SciPy version:	0.17.1
-                 pandas version:	0.18.1
+                  NumPy version:	1.15.4
+                  SciPy version:	1.1.0
+                 pandas version:	0.23.1
              matplotlib version:	1.4.3
-            biom-format version:	2.1.5
-                   h5py version:	2.6.0 (HDF5 version: 1.8.16)
+            biom-format version:	2.1.7
+                   h5py version:	2.8.0 (HDF5 version: 1.10.2)
                    qcli version:	0.1.1
                    pyqi version:	0.3.2
              scikit-bio version:	0.2.3
@@ -456,7 +560,7 @@ qiime-default-reference version:	0.1.3
        burrito-fillings version:	0.1.1
               sortmerna version:	SortMeRNA version 2.0, 29/11/2014
               sumaclust version:	SUMACLUST Version 1.0.00
-                  swarm version:	Swarm 1.2.19 [Mar  5 2016 16:56:02]
+                  swarm version:	Swarm 1.2.19 [Mar  1 2016 23:41:10]
                           gdata:	Installed.
 
 QIIME config values
@@ -466,18 +570,18 @@ For definitions of these settings and to learn how to configure QIIME, see here:
  http://qiime.org/tutorials/parallel_qiime.html
 
                      blastmat_dir:	None
-      pick_otus_reference_seqs_fp:	/lustre/home/d411/mbaron/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
+      pick_otus_reference_seqs_fp:	/lustre/home/d411/mbaron/miniconda3/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
                          sc_queue:	all.q
       topiaryexplorer_project_dir:	None
-     pynast_template_alignment_fp:	/lustre/home/d411/mbaron/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set_aligned/85_otus.pynast.fasta
+     pynast_template_alignment_fp:	/lustre/home/d411/mbaron/miniconda3/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set_aligned/85_otus.pynast.fasta
                   cluster_jobs_fp:	start_parallel_jobs.py
 pynast_template_alignment_blastdb:	None
-assign_taxonomy_reference_seqs_fp:	/lustre/home/d411/mbaron/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
+assign_taxonomy_reference_seqs_fp:	/lustre/home/d411/mbaron/miniconda3/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
                      torque_queue:	friendlyq
                     jobs_to_start:	1
                        slurm_time:	None
             denoiser_min_per_core:	50
-assign_taxonomy_id_to_taxonomy_fp:	/lustre/home/d411/mbaron/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+assign_taxonomy_id_to_taxonomy_fp:	/lustre/home/d411/mbaron/miniconda3/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
                          temp_dir:	/lustre/home/d411/mbaron/qiime_tmp/
                      slurm_memory:	None
                       slurm_queue:	None
@@ -488,12 +592,12 @@ QIIME base install test results
 ===============================
 .........
 ----------------------------------------------------------------------
-Ran 9 tests in 0.028s
+Ran 9 tests in 0.025s
 
 OK
 ```
 
-Finally, as Cirrus is a high-performance compute cluster, it doesn't have a display and hence no need for a window manager. Part of QIIME, `matplotlib` needs to be informed and switch to a mode, which doesn't expect a display. To following code will add this configuration.
+Finally, as Cirrus is a high-performance compute cluster, it doesn't have a display and hence no need for a window manager. One of QIIME's packages, `matplotlib`, needs to be informed and switch to a mode, which doesn't expect a display. The following code will add this configuration.
 
 ```bash
 echo "backend: Agg" > ~/.config/matplotlib/matplotlibrc
@@ -515,6 +619,47 @@ logout
 Connection to login.cirrus.ac.uk closed.
 [mbaron@partridge-wd00 .ssh]$
 ```
+
+## Transfering data to and fro Cirrus using secure copy
+
+Earlier, we created an SSH config file, which not only contained an entry for `login.cirrus.ac.uk`, but also an entry for `dsn.cirrus.ac.uk`.
+
+```
+[mbaron@partridge-wd00 ~]$ cat ~/.ssh/config
+IdentityFile ~/.ssh/id_rsa
+Host cirrus
+	User mbaron
+	Hostname login.cirrus.ac.uk
+Host cirrus_data
+	User mbaron
+	Hostname dsn.cirrus.ac.uk
+```
+
+*DSN* stands for **d**ata **s**ervice **n**ode. These nodes have higher bandwidth external network connnection and should be used to up- and download data from Cirrus.
+
+The `scp` (secure copy) command allows data transfer via the SSH protocol. Create a dummy file using `vim`, or pick a file somewhere on your computer - the content doesn't matter.
+
+The example below transfer a file (in this case containing my travel history) from my Dropbox folder to my home directory (`~`) on Cirrus. Note that the destination path on Cirrus follows after the colon (`:`).
+
+```bash
+scp ~/Dropbox/travel_history.txt cirrus_data:~
+```
+
+If `cirrus_data` was not defined in the SSH config, the command would be a bit more complicated:
+
+```bash
+scp ~/Dropbox/travel_history.txt mbaron@dsn.cirrus.ac.uk:~
+```
+
+To transfer data _from_ Cirrus to your local machine, swap the commands. Source is always listed first, destination second.
+
+The example below copies my travel history (the one just uploaded) from Cirrus to my home directory.
+
+```bash
+scp cirrus_data:~/travel_history.txt ~
+```
+
+Please note that you need to run these commands on your local machine. As you cannot (easily) reference your home machine whilst on Cirrus.
 
 ## Cirrus user documentation
 
