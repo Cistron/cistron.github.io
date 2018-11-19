@@ -5,13 +5,13 @@ title: HPC - Accessing Cirrus and installing QIIME
 
 As mentioned during the course introduction, you will get access to Cirrus, a high performance compute cluster managed by the [EPCC in Edingburgh](https://www.epcc.ed.ac.uk/). This guide will walk you through account setup, setup of ssh-keys and software installation.
 
-## Getting an Tier2 SAFE account and Cirrus login account
+## Getting a Tier2 SAFE account and Cirrus login account
 
 Navigate to the Tier2 SAFE at [https://www.archer.ac.uk/tier2/](https://www.archer.ac.uk/tier2/) and click on `create an account`.
 
 ![SAFE login page]({{ "/splats/images/hpc1/safe.png" | absolute_url }})
 
-Fill in the form, using your UCL email address and UCL's address. Unfortunately, the list of institutions is not alphabetically sorted; type `trinity` to get close to UCL. Make sure to leave the `Opt out of user Emails` box unchecked, else you will not receive important updates from the system administrators!
+Fill in the form, using your UCL email address and UCL's address. Unfortunately, the list of institutions is not alphabetically sorted (type `trinity` to get close to UCL). Make sure to leave the `Opt out of user Emails` box unchecked, else you will not receive important updates from the system administrators!
 
 ![SAFE account creation]({{ "/splats/images/hpc1/safe_account_creation.png" | absolute_url }})
 
@@ -61,7 +61,7 @@ Following this, you will be prompted to enter the password you picked up from th
 
 **Please note! The password cursor won't move. No matter how much you type or paste!**
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ssh mbaron@login.cirrus.ac.uk
 The authenticity of host 'login.cirrus.ac.uk (129.215.175.28)' can't be established.
 ECDSA key fingerprint is SHA256:EJp7y5JzeMseazlGb8qOQuGd52xw1SncA7m60G7axyI.
@@ -77,7 +77,7 @@ First paste the same password again (note the prompt mentions `(current) UNIX pa
 
 **Again, please note that the cursor won't move for password entry!**
 
-```
+```example_output
 mbaron@login.cirrus.ac.uk's password:
 You are required to change your password immediately (root enforced)
 Last login: Wed Nov  7 11:43:16 2018 from dhcp179175.biochem.ucl.ac.uk
@@ -124,12 +124,12 @@ ls -al ~/.ssh
 
 If the output is a `No such file or directory` error, or if neither `id_rsa` or `id_rsa.pub` are present, you will have to create keys.
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 ls: cannot access /home/mbaron/.ssh: No such file or directory
 ```
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 total 8
 -rw-------. 1 mbaron mbaron 747 Feb 13  2018 authorized_keys
@@ -150,7 +150,7 @@ Finally you are prompted to enter a passphrase. The official recommendation is t
 
 If you want to use a passphrase, have a read on how to use an [SSH-agent to manage your passphrases for you](https://www.ssh.com/ssh/agent).
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ssh-keygen -t rsa -b 4096
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/mbaron/.ssh/id_rsa):
@@ -182,7 +182,7 @@ ls -l ~/.ssh
 
 `id_rsa.pub` is your public key, which you will share with the world, whilst `id_rsa` is your private key, which you should **not** share with anyone.
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ls -l ~/.ssh
 total 16
 -rw-------. 1 mbaron mbaron  747 Feb 13  2018 authorized_keys
@@ -203,7 +203,7 @@ You will be promoted to enter your password for Cirrus. This should be the last 
 
 **Please note that this needs to be the new password you created earlier, not the one from the SAFE!**
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ssh-copy-id -i ~/.ssh/id_rsa.pub mbaron@login.cirrus.ac.uk
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/mbaron/.ssh/id_rsa.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
@@ -232,7 +232,7 @@ Notice that your command prompt (the text before your blinking cursor) changes, 
 
 Log off Cirrus again with the `exit` command.
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ ssh mbaron@login.cirrus.ac.uk
 Last failed login: Wed Nov  7 15:58:23 GMT 2018 from partridge-wd00.biochem.ucl.ac.uk on ssh:notty
 There was 1 failed login attempt since the last successful login.
@@ -296,7 +296,7 @@ Check the contents of the file you created using the concatenate (`cat`) command
 cat ~/.ssh/config
 ```
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ vim ~/.ssh/config
 [mbaron@partridge-wd00 ~]$ cat ~/.ssh/config
 IdentityFile ~/.ssh/id_rsa
@@ -312,7 +312,7 @@ You should now be able to connect to Cirrus using the much shorter command `ssh 
 
 If you receive a permission error, as below, update the file permissions using `chmod 600 ~/.ssh/config` and `chown $USER ~/.ssh/config`.
 
-```
+```example_output
 [mbaron@partridge-wd00 .ssh]$ ssh cirrus
 Bad owner or permissions on /home/mbaron/.ssh/config
 [mbaron@partridge-wd00 .ssh]$ chmod 600 ~/.ssh/config
@@ -330,7 +330,7 @@ On Cirrus, download *Miniconda* using `wget`. Note, you are downlading the 64bit
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-```
+```example_output
 mbaron:~$wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 --2018-11-12 11:22:34--  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 Resolving repo.anaconda.com (repo.anaconda.com)... 104.17.109.77, 104.17.111.77, 104.17.110.77, ...
@@ -356,7 +356,7 @@ You will be prompted to interact with the installation process a few times.
 * Then hit `Enter` to confirm its default installation path in your home directory. 
 * Finally, type `yes` to have *Miniconda* added to your `PATH` variable. This will allow you to use *Miniconda* as your default Python.
 
-```
+```example_output
 mbaron:~$bash Miniconda3-latest-Linux-x86_64.sh
 
 Welcome to Miniconda3 4.5.11
@@ -421,7 +421,7 @@ Thank you for installing Miniconda3!
 
 Before installing QIIME, you need to setup a local temporary directory. QIIME writes lots of temporary data, which could potentially break parts of the supercomputer. **Hence, this step is very important!** This is noted in every welcome message when you log onto Cirrus (see below).
 
-```
+```example_output
 ****  TMPDIR *must* be set if you are using Qiime1.           ****
 ****  Please contact g.pringle@epcc.ed.ac.uk for assistance.  ****
 ```
@@ -444,7 +444,7 @@ conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
 
 After fetching packages (could take a minute or two) and informing you about which packages will be installed, you need to confirm the installation procedure with `y`.
 
-```
+```example_output
 mbaron:~$conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
 Solving environment: done
 
@@ -493,7 +493,7 @@ Proceed ([y]/n)? y
 
 Now you can hang back and watch the installer download and install all the packages. This may take a few minutes.
 
-```
+```example_output
 Downloading and Extracting Packages
 qiime-default-refere | 20.6 MB   | ##################################################### | 100%
 prompt_toolkit-1.0.1 | 333 KB    | ##################################################### | 100%
@@ -525,7 +525,7 @@ print_qiime_config.py -t
 
 You should see the command prompt change, with the environment name (here `qiime1`) prepended in parentheses. The script will output the versions of software dependencies, as well as other QIIME configuration information (useful for trouble shooting). If the installation was successful, you should pass all 9 tests.
 
-```
+```example_output
 mbaron:~$source activate qiime1
 (qiime1) mbaron:~$print_qiime_config.py -t
 
@@ -612,7 +612,7 @@ exit
 
 You should see the command prompt change twice, once when the environment is closed and once more when you log off Cirrus.
 
-```
+```example_output
 (qiime1) mbaron:~$source deactivate
 mbaron:~$exit
 logout
@@ -624,7 +624,7 @@ Connection to login.cirrus.ac.uk closed.
 
 Earlier, we created an SSH config file, which not only contained an entry for `login.cirrus.ac.uk`, but also an entry for `dsn.cirrus.ac.uk`.
 
-```
+```example_output
 [mbaron@partridge-wd00 ~]$ cat ~/.ssh/config
 IdentityFile ~/.ssh/id_rsa
 Host cirrus

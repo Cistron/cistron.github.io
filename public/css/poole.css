@@ -48,7 +48,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -178,6 +178,20 @@ pre code {
   font-size: 100%;
   color: inherit;
   background-color: transparent;
+}
+
+/* custom code style (example_output) */
+
+.language-example_output {
+  font-size: .6rem;
+  color: #7a7a7a;
+}
+
+.language-example_output:before {
+  content: "Example output\A";
+  color: #268bd2;
+  font-size: 0.8rem;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Pygments via Jekyll */
@@ -390,7 +404,7 @@ tbody tr:nth-child(odd) th {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }
