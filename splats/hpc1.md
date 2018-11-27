@@ -1,6 +1,6 @@
 ---
 layout: splat
-title: HPC - Accessing Cirrus and installing QIIME
+title: High Performance Computing - Accessing Cirrus and installing QIIME
 ---
 
 As mentioned during the course introduction, you will get access to Cirrus, a high performance compute cluster managed by the [EPCC in Edingburgh](https://www.epcc.ed.ac.uk/). This guide will walk you through account setup, setup of ssh-keys and software installation.
