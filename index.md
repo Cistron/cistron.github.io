@@ -18,4 +18,5 @@ Here's a list of interesting stuff.
 ## More stuff
 
 * [HPC: Accessing Cirrus and installing QIIME](\splats\hpc1)
+* [HPC: Submitting your first job on Cirrus](\splats\hpc2)
 
