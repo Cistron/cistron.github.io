@@ -77,8 +77,8 @@ mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
 echo "loading virtual environment"
-source deactivate
-source activate qiime1
+conda deactivate
+conda activate qiime1
 
 # insert your QIIME code here
 
@@ -223,8 +223,8 @@ mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
 echo "loading virtual environment"
-source deactivate
-source activate qiime1
+conda deactivate
+conda activate qiime1
 
 echo "creating and cd to output directory"
 mkdir -p ~/output/benchmark/
@@ -265,7 +265,7 @@ echo "10k data set"
 # add code here
 
 echo "closing environment"
-source deactivate
+conda deactivate
 
 ### end script
 ```
@@ -305,8 +305,8 @@ mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
 echo "loading virtual environment"
-source deactivate
-source activate qiime1
+conda deactivate
+conda activate qiime1
 
 echo "creating and cd to output directory"
 mkdir -p ~/output/benchmark/
@@ -364,7 +364,7 @@ do
 done
 
 echo "closing environment"
-source deactivate
+conda deactivate
 
 ### end script
 ```

@@ -509,24 +509,24 @@ Verifying transaction: done
 Executing transaction: done
 #
 # To activate this environment, use:
-# > source activate qiime1
+# > conda activate qiime1
 #
 # To deactivate an active environment, use:
-# > source deactivate
+# > conda deactivate
 #
 ```
 
 Once the installation has completed, we need to check it is working. First the `qiime1` environment has to be activated and we can then execute a [QIIME function](http://qiime.org/scripts/print_qiime_config.html), which runs a few basic tests.
 
 ```bash
-source activate qiime1
+conda activate qiime1
 print_qiime_config.py -t
 ```
 
 You should see the command prompt change, with the environment name (here `qiime1`) prepended in parentheses. The script will output the versions of software dependencies, as well as other QIIME configuration information (useful for trouble shooting). If the installation was successful, you should pass all 9 tests.
 
 ```example_output
-mbaron:~$source activate qiime1
+mbaron:~$conda activate qiime1
 (qiime1) mbaron:~$print_qiime_config.py -t
 
 System information
@@ -606,14 +606,14 @@ echo "backend: Agg" > ~/.config/matplotlib/matplotlibrc
 Lastly, deactivate the `qiime1` environment and log off Cirrus.
 
 ```bash
-source deactivate
+conda deactivate
 exit
 ```
 
 You should see the command prompt change twice, once when the environment is closed and once more when you log off Cirrus.
 
 ```example_output
-(qiime1) mbaron:~$source deactivate
+(qiime1) mbaron:~$sourcondace deactivate
 mbaron:~$exit
 logout
 Connection to login.cirrus.ac.uk closed.
