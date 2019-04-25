@@ -3,20 +3,17 @@ layout: default
 title: home
 ---
 
-# S'up?
+# Oh hai!
 
-Here's a list of interesting stuff.
+<blockquote>"Funny how many nights it takes to be an overnight success."<br>
+<cite><small>– Probably someone really smart</small></cite></blockquote>
 
-## Self paced learning assisted tutorials \*
-
-<small>\* We clearly liked how 'SPLAT' sounded.<small>
+## A bunch of workshops
 
 * [Introduction to programming with Python](\splats\python1)
 * [Creating a gel electrophoresis figure with GIMP and Inkscape](\splats\figure1)
-    * [A checklist for better figures](\splats\figure_checklist)
-
-## More stuff
-
+* [A checklist for better figures](\splats\figure_checklist)
 * [HPC: Accessing Cirrus and installing QIIME](\splats\hpc1)
 * [HPC: Submitting your first job on Cirrus](\splats\hpc2)
 
+Kthxbai!
