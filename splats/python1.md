@@ -27,7 +27,7 @@ If you like to use your personal computer, you can download the same distributio
 
 ## Downloading the Notebook
 
-To start, [download the python1.ipynb notebook file]({{ "/splats/python1.ipynb" | absolute_url }}), save it in an appropriate folder (the download folder is probably not ideal) and open it through the `jupyter` file browser.
+To start, [download the python1.ipynb notebook file]({{ "/splats/data/python1/python1.ipynb" | absolute_url }}), save it in an appropriate folder (the download folder is probably not ideal) and open it through the `jupyter` file browser.
 
 ## Solutions
 
@@ -134,7 +134,7 @@ fizz_buzz_bang(length=60)
 {% endhighlight %}
 </details>
 
-<details><summary>Fizz, Buzz, Bang, etc. 2: Click to reveal code</summary>
+<details><summary>Fizz, Buzz, Bang, etc. 3: Click to reveal code</summary>
 {% highlight python %}
 # Input list of terms and numbers
 def fizz_buzz (numbers=[3,4,5],terms=['Fizz','Buzz','Bang'],length=100):

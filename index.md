@@ -11,6 +11,7 @@ title: home
 ## A bunch of workshops
 
 * [Introduction to programming with Python](\splats\python1)
+* [Basic sequence manipulation with Python](\splats\python2)
 * [Creating a gel electrophoresis figure with GIMP and Inkscape](\splats\figure1)
 * [A checklist for better figures](\splats\figure_checklist)
 * [HPC: Accessing Cirrus and installing QIIME](\splats\hpc1)
