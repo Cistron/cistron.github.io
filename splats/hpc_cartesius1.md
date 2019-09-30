@@ -77,7 +77,6 @@ Last login: Wed Jul 31 09:55:07 2019 from socrates-a-14-03-375-d04.isd-nat.ucl.a
 [mbaron@int1 ~]$
 ```
 
-
 Congratulations, you have successfully conntected to Cartesius. Notice that your command prompt (the text before your blinking cursor) changes, depending on the system you are currently on. In the example outputs above `mbaron at dhcp179175 in ~$` for my local desktop machine changes to `[mbaron@int1 ~]$` while on Cartesius - in both cases `~` indicates the user home directory.
 
 Let's disconnect by either execulting the `logout` or `exit` command or the key-combination `Ctrl+D`.
@@ -592,7 +591,7 @@ Enabling: qiime2.jupyter
 Lastly, deactivate the `qiime2-2019.7` environment and log off Cartesius.
 
 ```bash
-conda deactivate
+source deactivate
 exit
 ```
 
