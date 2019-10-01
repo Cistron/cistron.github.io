@@ -182,6 +182,12 @@ For passwordless SSH communcation between the login and compute node, generate a
 ssh-keygen -t rsa -b 4096
 ```
 
+We then also need to add the key to the list of authorised keys.
+
+```bash
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
 Copy the Jupyter script from my scripts directory to your project directory (correct if you are using a different directory).
 
 ```bash
