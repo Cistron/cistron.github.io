@@ -10,11 +10,18 @@ title: home
 
 ## A bunch of workshops
 
-* [Introduction to programming with Python](\splats\python1)
-* [Basic sequence manipulation with Python](\splats\python2)
-* [Creating a gel electrophoresis figure with GIMP and Inkscape](\splats\figure1)
-* [A checklist for better figures](\splats\figure_checklist)
-* [HPC: Accessing Cirrus and installing QIIME](\splats\hpc1)
-* [HPC: Submitting your first job on Cirrus](\splats\hpc2)
+* Python
+  * [Introduction to programming with Python](\splats\python1)
+  * [Basic sequence manipulation with Python](\splats\python2)
+* Figures and design
+  * [Creating a gel electrophoresis figure with GIMP and Inkscape](\splats\figure1)
+  * [A checklist for better figures](\splats\figure_checklist)
+* Supercomputer 2018/19
+  * [Accessing Cirrus and installing QIIME](\splats\hpc1)
+  * [Submitting your first job on Cirrus](\splats\hpc2)
+* Supercomputer 2019/20
+  * [Accessing Cartesius and installing QIIME2](\splats\hpc_cartesius1)
+  * [Using the job scheduler and working with Jupyter notebooks on Cartesius](\splats\hpc_cartesius2)
+  * [Exploring changes in the human oral microbiome with QIIME2 on Cartesius](\splats\hpc_cartesius3)
 
 Kthxbai!
