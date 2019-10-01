@@ -48,7 +48,9 @@ cp ~mbaron/scripts/test.sub ~/test
 
 Note: `~mbaron` is another shortcut to address home directories, while `~` will be your home directory you can address other user's home directories by appending their username.
 
-The `test.sub` (see below) requests a single node for 15 minutes on the short queue, loads Anaconda, activates the QIIME environment and prints out information about the QIIME installation.
+`test.sub` (shown below) requests a single node for 15 minutes on the short queue, loads Anaconda, activates the QIIME environment and prints out information about the QIIME installation.
+
+*Note: Do not copy and paste the code below on the command line! These are the contents of `test.sub`.*
 
 ```bash
 #!/bin/bash
@@ -191,10 +193,13 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 Copy the Jupyter script from my scripts directory to your project directory (correct if you are using a different directory).
 
 ```bash
+# Note: do not replace mbaron in this script
 cp ~mbaron/scripts/jupyter.sub ~/test
 ```
 
 The first part of the script is identical to the previous test script. One node is requested for the maximum of one hour of the short partition; Anaconda and QIIME are loaded. Then the script prints out instructions on how to connect to the open port of the login node, generates the reverse SSH tunnel and launches a Jupyter notebook.
+
+*Note: Do not copy and paste the code below on the command line! These are the contents of `jupyter.sub`.*
 
 ```bash
 #!/bin/bash
