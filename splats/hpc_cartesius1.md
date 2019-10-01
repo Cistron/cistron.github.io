@@ -315,6 +315,8 @@ chmod 644 ~/.ssh/config
 
 You will still be asked to enter your password on Cartesius. To avoid this you need to upload your public key to Cartesius as well.
 
+*Note: Disconnect from Cartesius again!*
+
 ### Copying your public SSH keys to Cartesius
 
 As previously we can use `ssh-copy-id`. Note that you won't have to add any usernames this time, as they are defined in your ssh-config.
