@@ -406,10 +406,10 @@ QIIME2 is a collection of software tools bundled together and connected by Pytho
 
 Luckily, supercomputers come with a host of programmes, which can be loaded as required with the `module` commands. You can find more information in the [Cartesius documentation on modules](https://userinfo.surfsara.nl/systems/shared/modules).
 
-Cartesius uses [EasyBuild](https://easybuilders.github.io/easybuild/), a software build and installation framework, which needs to be loaded first. This is followed by a load command for [Anaconda](https://www.anaconda.com/), a comprehensive Python distribution with the handy `conda` Python package manager.
+Cartesius uses a (temporary) hierachical system to give access to modules. We first load `2019`, which this is followed by a load command for [Anaconda](https://www.anaconda.com/), a comprehensive Python distribution with the handy `conda` Python package manager.
 
 ```bash
-module load eb
+module load 2019
 module load Anaconda3
 ```
 

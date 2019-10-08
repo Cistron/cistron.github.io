@@ -60,7 +60,7 @@ Note: `~mbaron` is another shortcut to address home directories, while `~` will 
 
 # Code to be executed on the compute node(s)
 echo "loading modules"
-module load eb
+module load 2019
 module load Anaconda3
 module list
 echo ""
@@ -208,7 +208,7 @@ The first part of the script is identical to the previous test script. One node 
 #SBATCH -p short
 
 echo "loading modules"
-module load eb
+module load 2019
 module load Anaconda3
 module list
 echo
