@@ -332,6 +332,23 @@ du -hs ~/2019/
 
 Running out of storage space may cause your jobs to fail. Consequently you should [archive your data](https://userinfo.surfsara.nl/systems/shared/archive-file-system), by moving it to your user's archive directory. This can be found under `/archive/username/'. This being a tape-archive, it is important that you [follow the instructions](https://userinfo.surfsara.nl/systems/shared/archive-file-system) and do not fill it up with small files (<100MB). If you have lots of smaller files for archiving, [compress them in an archive-container such as a tarball](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/).
 
+## Job email notification
+
+SLURM, the job scheduler, has the option to notify you by email when the status of a submitted job changes. This might be useful when you are queueing for a longer Juypter session to start.
+
+You can initiate the email notification, by either passing the information with the `sbatch` command when submitting the job, e.g. `sbatch --mail-type=ALL --mail-user=myemail.ucl.ac.uk`, or by adding the appropriate `#SBATCH` comments into your script (see example below).
+
+```bash
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -t 0:15:00
+#SBATCH -p short
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=myemail@ucl.ac.uk
+```
+
+You will receive emails by `slurm@cartesius.surfsara.nl`. The types of emails, or rather conditions when emails are sent, depend on the `--mail-type=<type>` tag (`--mail-type=ALL` will provide you with a good default). For a full list of conditions, consult the [SLURM documentation](https://slurm.schedmd.com/sbatch.html) (you will have to scroll down a fair bit).
+
 ## Stuck?
 
 In the first instance, please post on the Moodle forums, or come to one of the clinics to get help in person (dates to be announced).
