@@ -1,0 +1,15 @@
+# Changes in the oral microbiome throughout a day in a 21 year-old white male with good tooth health on a vegan diet										
+id	barcode-sequence	time	time-past-brushing-hours	liquid-consumed	liquid-type	volume-ml	food-consumed	food	refined-sugars-g	teeth-brushing
+#q2:types	categorical	categorical	numeric	categorical	categorical	numeric	categorical	categorical	numeric	categorical
+s01	GTGAATGTTCGA	08:00	0	Y	Water	250	N	N	0	N
+s02	TATGTTGACGGC	08:02	0.033333333	N	NA	0	N	N	0	Y
+s03	AGTGTTTCGGAC	09:00	1	N	NA	0	N	N	0	N
+s04	ATTTCCGCTAAT	10:00	2	Y	Water	250	Y	"5 pancakes, 1 banana, 1tbsp syrup"	24	N
+s05	CAAACCTATGGC	11:00	3	Y	Tea	250	N	N	0	N
+s06	CATTTGACGACG	12:00	4	N	NA	0	N	N	0	N
+s07	ACTAAGTACCCG	13:00	5	Y	Jasmine Tea	250	N	N	0	N
+s08	CACCCTTGCGAC	14:00	6	Y	Water	250	Y	"Sweet potato mash, roasted tomato, broccoli, courgette, peas, slice of toast"	0	N
+s09	GATGCCTAATGA	15:00	7	N	NA	0	N	N	0	N
+s10	GTACGTCACTGA	16:00	8	N	NA	0	N	N	0	N
+s11	TCGCTACAGATG	17:00	9	Y	Water	250	Y	"1 Banana, 2 bourbon biscuits"	8	N
+s12	CCGGCTTATGTG	18:00	10	N	NA	0	N	N	0	N
