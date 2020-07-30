@@ -8,7 +8,7 @@ title: home
 <blockquote>"Funny how many nights it takes to be an overnight success."<br>
 <cite><small>– Probably someone really smart</small></cite></blockquote>
 
-## A bunch of workshops
+## A bunch of workshops <small>(for my former students and colleagues at UCL)</small>
 
 * Python
   * [Introduction to programming with Python](\splats\python1)

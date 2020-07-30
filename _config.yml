@@ -3,14 +3,14 @@ permalink:           pretty
 
 # Setup
 title:               'Delightfully unprofessorial'
-description:         'Teaching materials and ruminations by Dr. Michael Baron.'
+description:         "Stuff 'n things' by Dr. Michael Baron."
 url:                 http://cistron.github.io
 baseurl:             ''
 
 # About/contact
 author:
   name:              Michael Baron
-  url:               https://iris.ucl.ac.uk/iris/browse/profile?upi=MBARO00
-  email:             michael.baron@ucl.ac.uk
+  url:               http://cistron.github.io
+  email:             m.baron@gmx.net
 
 include: ["_splats"]
